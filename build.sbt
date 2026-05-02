@@ -8,10 +8,9 @@ lazy val fastjson = (project in file("."))
   .aggregate(
     fastjsonDemo.jvm,
     fastjsonDemo.js,
-    fastjsonDemo.native,
   )
 
-lazy val fastjsonDemo = (crossProject(JVMPlatform, JSPlatform, NativePlatform) in file("fastjson-demo"))
+lazy val fastjsonDemo = (crossProject(JVMPlatform, JSPlatform) in file("fastjson-demo"))
   .settings(name := "fastjson-demo")
   .settings(crossTestDependencies(scalaTest.flatSpec))
   .jvmSettings(
